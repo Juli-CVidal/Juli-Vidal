@@ -75,6 +75,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  transition: background .4s;
 }
 
 h1,
@@ -99,19 +100,67 @@ img {
 }
 
 /*=============== THEME ===============*/
+.nav__buttons{
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+
+.change-theme{
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: color .3s;
+}
+
 
 /*========== Variables Dark theme ==========*/
-/* body.dark-theme {
+body.dark-theme {
   --title-color: hsl(207, 4%, 95%);
   --text-color: hsl(207, 4%, 65%);
   --body-color: hsl(207, 4%, 10%);
   --container-color: hsl(207, 4%, 12%);
-} */
+}
 
 /*========== 
     Color changes in some parts of 
     the website, in light theme
 ==========*/
+.dark-theme .nav,
+.dark-theme .nav__menu, 
+.dark-theme .scrollup{
+  background-color: var(--container-color);
+  box-shadow: 0 4px 20px rgba(16, 21, 25, 0.4);
+}
+
+.dark-theme .home__shape-waves,
+.dark-theme .home__shape-circle,
+.dark-theme .qualification__img{
+  filter: invert(1);
+}
+
+
+.dark-theme .home__social-link{
+  color: var(--title-color);
+}
+
+.dark-theme .section__border{
+  border-bottom: 1px solid rgb(78, 82, 85);
+}
+
+.dark-theme::-webkit-scrollbar{
+  background-color: rgb(37, 38, 40);
+  
+}
+.dark-theme::-webkit-scrollbar-thumb{
+  background-color: rgb(61, 63, 66);
+
+}
+.dark-theme::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(86, 88, 93);
+
+}
+
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
@@ -173,6 +222,7 @@ img {
   box-shadow: 0 4px 20px rgb(68, 91, 111, 0.1);
   padding-inline: 1.5rem;
   border-radius: 3rem;
+  transition: background .4s;
 }
 
 .nav__logo,
@@ -278,6 +328,7 @@ img {
   justify-self: center;
   border-radius: 6.25rem;
   place-items: center;
+  transition: background .4s;
 }
 
 .home__perfil {
@@ -403,6 +454,7 @@ img {
   border-radius: 3rem;
   place-items: center;
   margin-bottom: 1rem;
+  transition: background .4s;
 }
 
 .skills__blob img {
@@ -509,6 +561,7 @@ img {
   text-align: center;
   padding: 3.5rem 1rem;
   border-radius: 7.25rem;
+  transition: background .4s;
 }
 
 .services__card i {
@@ -727,6 +780,7 @@ img {
   font-size: var(--smaller-font-size);
   font-weight: var(--font-medium);
   padding: .35rem;
+  transition: background .4s;
 }
 
 .contact__form-area{

@@ -746,10 +746,24 @@ img {
 .contact__form .contact__button{
   font-size: 1.5rem;
   font-weight: initial;
-  
-}
-/* Status color */
 
+}
+
+.result__message{
+  font-size: var(--small-font-size);
+  position: absolute;
+  bottom: 2.8rem;
+  left: 1.5rem;
+}
+
+/* Status color */
+.color-red{
+  color: rgb(218, 49, 37);
+}
+
+.color-blue{
+  color: rgb(50, 121, 179);
+}
 /*=============== FOOTER ===============*/
 
 /*=============== SCROLL BAR ===============*/

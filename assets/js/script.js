@@ -84,7 +84,7 @@ const sendEmail = (event) => {
         resultMessage.innerText = "Message sent successfully!";
 
         setTimeout(() => {
-          contactMessage.innerText = "";
+          resultMessage.innerText = "";
         
         },5000)
       },(error)=> {

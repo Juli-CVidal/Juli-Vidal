@@ -287,8 +287,9 @@ img {
 }
 
 .home__perfil img {
-  transform: translateX(4%);
-  max-width: 120%;
+  /* transform: translateX(4%); */
+  /* width: 120%; */
+  max-width: 153%;
 }
 
 .home__shape-waves,

@@ -225,7 +225,7 @@ img {
 }
 
 .nav__link:hover {
-  color: var(--first-color);
+  color: var(--title-color);
 }
 
 .nav__link i {

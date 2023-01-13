@@ -514,13 +514,13 @@ img {
   transition: transform 0.8s;
 }
 
-.services__title{
+.services__title {
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: 1.5rem;
 }
 
-.services__border{
+.services__border {
   width: 248px;
   height: 342px;
   border: 1.8px solid var(--text-color-light);
@@ -530,20 +530,100 @@ img {
   left: -10px;
   margin: auto;
   z-index: -1;
-  transition: opacity .6s;
+  transition: opacity 0.6s;
   opacity: 0;
 }
 
-.services__card:hover i{
+.services__card:hover i {
   transform: rotateY(360deg);
 }
 
-.services__card:hover .services__border{
+.services__card:hover .services__border {
   opacity: 1;
 }
 /*=============== PROJECTS ===============*/
+.projects__container {
+  overflow: initial;
+}
+
+.projects__content{
+  display: grid;
+  justify-content: center;
+}
+
+.projects__img {
+  width: 250px;
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.projects__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+.projects__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 1.25rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.projects__button{
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+}
+
+.projects__button i{
+  font-size: 1rem;
+  transition: transform .3s;
+}
+
+.projects__button:hover i{
+  transform: translateX(.25rem);
+}
 
 /* Swiper class */
+.projects__container .swiper-button-prev::after,
+.projects__container .swiper-button-next::after{
+  content: "";
+}
+
+
+.projects__container .swiper-button-prev,
+.projects__container .swiper-button-next{
+  width: initial;
+  height: initial;
+  margin: initial;
+  font-size: 2.5rem;
+  color: var(--title-color);
+}
+
+
+.projects__container .swiper-button-prev{
+  left: -1rem;
+  top: 4.5rem;
+}
+.projects__container .swiper-button-next{
+  right: -1rem;
+  top: 4.5rem;
+}
+
+.projects__container .swiper-slide{
+  margin-bottom: 4.5rem;
+}
+
+.projects__container .swiper-pagination-bullets{
+  bottom: 0;
+}
+.projects__container .swiper-pagination-bullet{
+  background-color: var(--text-color-light);
+  opacity: initial;
+}
+.projects__container .swiper-pagination-bullet-active{
+  background-color: var(--title-color);
+}
 
 /*=============== TESTIMONIAL ===============*/
 

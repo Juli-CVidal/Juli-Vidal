@@ -20,7 +20,7 @@
     <!--=============== SWIPER CSS ===============-->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.css"
     />
 
     <!--=============== CSS ===============-->
@@ -398,65 +398,89 @@
         <h2 class="section__title">Projects</h2>
         <span class="section__subtitle">Most recent work</span>
         <div class="container section__border">
-          <div class="projects__container">
-            <div>
+          <div class="projects__container swiper">
+            <div class="swiper-wrapper">
               <!--==================== PROJECT 1 ====================-->
-              <div class="projects__content">
+              <div class="projects__content swiper-slide">
                 <img
                   src="assets/img/projects/open drinks.png"
                   alt="Open Drinks"
+                  class="projects__img"
                 />
                 <div>
-                  <span class="projects__subtitle"></span>
-                  <h1 class="projects__title"></h1>
-                  <a href="" class="projects__button"
-                    >Join Us <i class="ri-goblet-line"></i
+                  <span class="projects__subtitle"
+                    >The best drinks, in one place</span
+                  >
+                  <h1 class="projects__title">Open Drinks</h1>
+                  <a
+                    href="https://juli-cvidal.github.io/Open-Drinks/"
+                    class="projects__button"
+                    target="_blank"
+                    >Join Us <i class="ri-arrow-right-line"></i
+                  ></a>
+                </div>
+              </div>
+              <!--==================== PROJECT 2 ====================-->
+              <div class="projects__content swiper-slide">
+                <img
+                  src="assets/img/projects/wallpaper.jpg"
+                  alt="Wallpaper"
+                  class="projects__img"
+                />
+                <div>
+                  <span class="projects__subtitle"
+                    >Dynamic wallpapers, customizable to your liking</span
+                  >
+                  <h1 class="projects__title">Wallpapers</h1>
+                  <a
+                    href="https://juli-cvidal.github.io/TextClock-Wallpaper/"
+                    class="projects__button"
+                    target="_blank"
+                    >Take a view <i class="ri-arrow-right-line"></i
+                  ></a>
+                </div>
+              </div>
+              <!--==================== PROJECT 3 ====================-->
+              <div class="projects__content swiper-slide">
+                <img
+                  src="assets/img/projects/spring apps.gif"
+                  alt="Spring apps"
+                  class="projects__img"
+                />
+                <div>
+                  <span class="projects__subtitle"
+                    >Made with spring boot, security, MVC and more</span
+                  >
+                  <h1 class="projects__title">Spring News</h1>
+                  <a
+                    href="https://github.com/Juli-CVidal/Spring-Egg-News"
+                    class="projects__button"
+                    target="_blank"
+                    >Watch the repo <i class="ri-arrow-right-line"></i
                   ></a>
                 </div>
               </div>
               <!--==================== PROJECT 1 ====================-->
-              <div class="projects__content">
-                <img
-                  src="assets/img/projects/open drinks.png"
-                  alt="Open Drinks"
-                />
+              <!-- <div class="projects__content swiper-slide">
+                <img src="" alt="" />
                 <div>
                   <span class="projects__subtitle"></span>
                   <h1 class="projects__title"></h1>
-                  <a href="" class="projects__button"
-                    >Join Us <i class="ri-goblet-line"></i
-                  ></a>
+                  <a href="" class="projects__button" target="_blank"></a>
                 </div>
-              </div>
-              <!--==================== PROJECT 1 ====================-->
-              <div class="projects__content">
-                <img
-                  src="assets/img/projects/open drinks.png"
-                  alt="Open Drinks"
-                />
-                <div>
-                  <span class="projects__subtitle"></span>
-                  <h1 class="projects__title"></h1>
-                  <a href="" class="projects__button"
-                    >Join Us <i class="ri-goblet-line"></i
-                  ></a>
-                </div>
-              </div>
-              <!--==================== PROJECT 1 ====================-->
-              <div class="projects__content">
-                <img
-                  src="assets/img/projects/open drinks.png"
-                  alt="Open Drinks"
-                />
-                <div>
-                  <span class="projects__subtitle"></span>
-                  <h1 class="projects__title"></h1>
-                  <a href="" class="projects__button"
-                    >Join Us <i class="ri-goblet-line"></i
-                  ></a>
-                </div>
-              </div>
+              </div> -->
             </div>
+
+            <!-- Swiper arrows -->
+            <div class="swiper-button-next">
+              <i class="ri-arrow-drop-right-line"></i>
+            </div>
+            <div class="swiper-button-prev">
+              <i class="ri-arrow-drop-left-line"></i>
+            </div>
+
+            <!-- Swiper pagination -->
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </section>
@@ -477,7 +501,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--=============== SWIPER JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8.3.2/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.js"></script>
 
     <!--=============== EMAIL JS ===============-->
 

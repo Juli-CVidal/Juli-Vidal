@@ -48,7 +48,6 @@ let swiperProjects = new Swiper(".projects__container", {
   keyboard: true,
 });
 
-/*=============== SWIPER TESTIMONIAL ===============*/
 
 /*=============== EMAIL JS ===============*/
 

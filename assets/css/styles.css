@@ -402,6 +402,16 @@ body.dark-theme {
   font-weight: var(--font-semi-bold);
 }
 
+.certificate__link{
+  text-decoration: none;
+}
+.certificate__link:hover{
+  text-decoration: underline;
+}
+.certificate__link:visited{
+  color: var(--title-color);
+}
+
 /*=============== SKILLS ===============*/
 .skills__container {
   row-gap: 3.5rem;

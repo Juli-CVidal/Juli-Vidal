@@ -3,4 +3,4 @@
 
 
 ## Index: 
-* [How to use CSS](/CSS%20Tips.md)
+* [How to use CSS](CSS%20Tips.md)

@@ -370,7 +370,7 @@ body.dark-theme {
   transition: background 0.4s;
 }
 
-.home__perfil {
+.home__profile {
   width: 170px;
   height: 260px;
   background: var(--gradient-color);
@@ -381,7 +381,7 @@ body.dark-theme {
   align-items: flex-end;
 }
 
-.home__perfil img {
+.home__profile img {
   /* transform: translateX(4%); */
   /* width: 120%; */
   max-width: 153%;
@@ -451,8 +451,9 @@ body.dark-theme {
 }
 
 .certificate__link{
-  text-decoration: none;
+  color: var(--title-color);
 }
+
 .certificate__link:hover{
   text-decoration: underline;
 }
@@ -1187,13 +1188,13 @@ body.dark-theme {
     border-radius: 12.5rem;
   }
 
-  .home__perfil {
+  .home__profile {
     width: 340px;
     height: 520px;
     border-radius: 10.56rem;
   }
 
-  .home__perfil img {
+  .home__profile img {
     width: 300px;
   }
 

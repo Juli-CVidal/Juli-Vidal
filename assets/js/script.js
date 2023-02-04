@@ -31,7 +31,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 let swiperProjects = new Swiper(".projects__container", {
   loop: true,
   spaceBetween: 24,
-  slidesPerView:1,
+  slidesPerView: 1,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -183,6 +183,20 @@ const sr = ScrollReveal({
 
 sr.reveal(".home__data, .projects__container, .footer__container");
 sr.reveal(".home__info div", { delay: 600, origin: "bottom", interval: 100 });
-sr.reveal(".skills__content:nth-child(1), .contact__content:nth-child(1)", { origin: "left" });
-sr.reveal(".skills__content:nth-child(2), .contact__content:nth-child(2)", { origin: "right" });
+sr.reveal(".skills__content:nth-child(1), .contact__content:nth-child(1)", {
+  origin: "left",
+});
+sr.reveal(".skills__content:nth-child(2), .contact__content:nth-child(2)", {
+  origin: "right",
+});
 sr.reveal(".qualification__content, .services__card", { interval: 100 });
+
+/*=============== LOADER ===============*/
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader__area");
+  setTimeout(() => {
+    preloader.style.opacity = 0;
+    setTimeout(() => (preloader.style.display = "none"), 1);
+  }, 500);
+});

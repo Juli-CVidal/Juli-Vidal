@@ -30,8 +30,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*=============== SWIPER PROJECTS ===============*/
 let swiperProjects = new Swiper(".projects__container", {
   loop: true,
-  spaceBetween: 24,
-  slidesPerView: 1,
+  slidesPerView: "auto",
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",

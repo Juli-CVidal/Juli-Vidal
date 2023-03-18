@@ -199,7 +199,7 @@ body.dark-theme {
 }
 
 /*=============== LOADER ===============*/
-#preloader__area{
+#preloader__area {
   position: fixed;
   text-align: center;
   background-color: var(--body-color);
@@ -213,37 +213,35 @@ body.dark-theme {
   transition: opacity 0.4s;
 }
 
-.preloader{
+.preloader {
   position: relative;
   top: 45%;
 }
 
 .loader {
-    color: var(--title-color);
-    font-family: Consolas, Menlo, Monaco, monospace;
-    font-weight: bold;
-    font-size: 78px;
-    opacity: 0.8;
-  }
-  .loader:before {
-    content: "{";
-    display: inline-block;
-    animation: pulse 0.4s alternate infinite ease-in-out;
-  }
-  .loader:after {
-    content: "}";
-    display: inline-block;
-    animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
-  }
+  color: var(--title-color);
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 78px;
+  opacity: 0.8;
+}
+.loader:before {
+  content: "{";
+  display: inline-block;
+  animation: pulse 0.4s alternate infinite ease-in-out;
+}
+.loader:after {
+  content: "}";
+  display: inline-block;
+  animation: pulse 0.4s 0.3s alternate infinite ease-in-out;
+}
 
-  @keyframes pulse {
-    to {
-      transform: scale(0.8);
-      opacity: 0.5;
-    }
+@keyframes pulse {
+  to {
+    transform: scale(0.8);
+    opacity: 0.5;
   }
-      
-
+}
 
 /*=============== HEADER & NAV ===============*/
 .header {
@@ -450,14 +448,14 @@ body.dark-theme {
   font-weight: var(--font-semi-bold);
 }
 
-.certificate__link{
+.certificate__link {
   color: var(--title-color);
 }
 
-.certificate__link:hover{
+.certificate__link:hover {
   text-decoration: underline;
 }
-.certificate__link:visited{
+.certificate__link:visited {
   color: var(--title-color);
 }
 
@@ -717,7 +715,7 @@ body.dark-theme {
 }
 
 .projects__container .swiper-slide {
-  margin-bottom: 4.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .projects__container .swiper-pagination-bullets {
@@ -729,14 +727,6 @@ body.dark-theme {
 }
 .projects__container .swiper-pagination-bullet-active {
   background-color: var(--title-color);
-}
-
-.swiper-slide{
-  visibility: hidden;
-}
-
-.swiper-slide-active{
-  visibility: visible;
 }
 
 /*=============== CONTACT ===============*/
@@ -1033,7 +1023,7 @@ body.dark-theme {
   .home__data {
     order: 2;
   }
- 
+
   .home__info:nth-child(3) {
     order: 3;
     text-align: right;
@@ -1060,7 +1050,7 @@ body.dark-theme {
     column-gap: 5rem;
   }
 
-  .skills__container{
+  .skills__container {
     justify-content: center;
   }
   .qualification__container {
@@ -1069,7 +1059,8 @@ body.dark-theme {
   }
 
   .projects__container {
-    width: 500px;
+
+    width: 65%;
   }
 
   .contact__form {

@@ -12,6 +12,3 @@ I really enjoyed the process of creating this project, as it helped me learn and
 
 ## Here's the [preview](https://juli-cvidal.github.io/Juli-Vidal/):
 <img src="Preview.gif"/>
-
-
->Pd: I am making a list of the things [I have learned](What%20I%20have%20learned/readme.md), I hope you like it!

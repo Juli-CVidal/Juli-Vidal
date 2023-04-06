@@ -91,8 +91,9 @@ ul {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
 }
+
 
 img {
   max-width: 100%;
@@ -448,15 +449,9 @@ body.dark-theme {
   font-weight: var(--font-semi-bold);
 }
 
-.certificate__link {
+.certificate__link, .qualification__name:visited{
   color: var(--title-color);
-}
-
-.certificate__link:hover {
   text-decoration: underline;
-}
-.certificate__link:visited {
-  color: var(--title-color);
 }
 
 /*=============== SKILLS ===============*/
@@ -574,6 +569,11 @@ body.dark-theme {
 .qualification__name {
   font-size: var(--normal-font-size);
   margin-bottom: 1.25rem;
+}
+
+.qualification__name a, .qualification__name a:visited{
+  color: var(--title-color);
+  text-decoration: underline;
 }
 
 .qualification__country,

@@ -885,14 +885,14 @@ body.background-visible {
 
 .contact__form-tag {
   position: absolute;
-  top: -0.75rem;
-  left: 1.25rem;
+  top: -0.95rem;
+  left: 2.15rem;
   z-index: 10;
-  background-color: var(--body-color);
+  /* background-color: var(--body-color); */
   color: var(--title-color);
-  font-size: var(--smaller-font-size);
+  font-size: 1rem;
   font-weight: var(--font-medium);
-  padding: 0.35rem;
+  /* padding: 0.35rem; */
   transition: background 0.4s;
 }
 

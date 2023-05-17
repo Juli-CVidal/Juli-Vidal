@@ -252,21 +252,20 @@ body.background-visible {
   z-index: -1000;
   background-image: linear-gradient(to bottom left, #fcfcfd 50%, #181a1b 50%);
   opacity: 0;
-  transition: all 0.4s;
+  transition: all 1s ease-in-out;
 }
+
 .background-visible .background {
   opacity: 1;
 }
+
+.dark-theme .background {
+  transform: rotateZ(180deg);
+  transition: all 1s ease-in-out;
+}
+
 .background-visible .blend-difference {
   mix-blend-mode: difference;
-}
-
-.background-visible .home :is(i, p, h1, span) {
-  color: hsl(207, 4%, 95%);
-}
-
-.background-visible .home__title {
-  color: rgb(24, 26, 27) !important;
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -377,21 +376,30 @@ body.background-visible {
 
 .home__title {
   text-align: center;
+  color: #181a1b;
   font-size: var(--biggest-font-size);
   letter-spacing: 0.3px;
   margin-bottom: 0.5rem;
+  transition: color 0.8s;
+}
+.dark-theme.background-visible .home__title {
+  color: #fcfcfd;
 }
 
 .home__blob {
   position: relative;
   width: 200px;
   height: 290px;
-  background-color: var(--body-color);
+  background-color: #fcfcfd;
   border: 2px solid var(--text-color-light);
   justify-self: center;
   border-radius: 6.25rem;
   place-items: center;
   transition: background 0.4s;
+}
+
+.dark-theme .home__blob {
+  background-color: #181a1b;
 }
 
 .home__profile {
@@ -507,7 +515,7 @@ body.background-visible {
 }
 
 .background-visible:not(.dark-theme) .skills__content h3 {
-  color: rgb(24, 26, 27);
+  color: #181a1b;
 }
 
 .background-visible.dark-theme .skills__content::before {
@@ -669,7 +677,6 @@ body.background-visible {
   position: relative;
   width: 228px;
   height: 322px;
-  background-color: var(--container-color);
   text-align: center;
   padding: 3.5rem 1rem;
   border-radius: 7.25rem;
@@ -679,7 +686,7 @@ body.background-visible {
 .services__card i {
   display: block;
   font-size: 2rem;
-  color: var(--title-color);
+  color: #fcfcfd;
   margin-bottom: 0.75rem;
   transition: transform 0.8s;
 }
@@ -688,6 +695,30 @@ body.background-visible {
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
   margin-bottom: 1.5rem;
+}
+
+.services__card::before {
+  box-shadow: 15px 9px 19px 1px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fcfcfd;
+  border-radius: 7.75rem;
+  opacity: 0.7;
+  z-index: -100;
+}
+
+.background-visible.dark-theme .services__card::before {
+  background-color: #181a1b;
+}
+
+.background-visible:not(.dark-theme)
+  :is(.services__title, .services__card :is(i, p)) {
+  color: #181a1b;
 }
 
 .services__border {

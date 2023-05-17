@@ -382,8 +382,7 @@ body.background-visible {
   margin-bottom: 0.5rem;
   transition: color 0.8s;
 }
-
-.dark-theme .home__title {
+.dark-theme.background-visible .home__title {
   color: #fcfcfd;
 }
 

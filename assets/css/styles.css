@@ -7,7 +7,7 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(207, 65%, 65%);
+  --first-color: hsl(207, 49%, 47%);
   --title-color: hsl(207, 4%, 16%);
   --text-color: hsl(207, 4%, 28%);
   --text-color-light: hsl(207, 4%, 56%);
@@ -94,7 +94,6 @@ a {
   text-decoration: none;
 }
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -114,8 +113,9 @@ img {
   transition: color 0.3s;
 }
 
-/*========== Variables Dark theme ==========*/
-body.dark-theme {
+/*========== Variables Dark theme and background visible ==========*/
+body.dark-theme,
+body.background-visible {
   --title-color: hsl(207, 4%, 95%);
   --text-color: hsl(207, 4%, 65%);
   --body-color: hsl(207, 4%, 10%);
@@ -242,6 +242,31 @@ body.dark-theme {
     transform: scale(0.8);
     opacity: 0.5;
   }
+}
+
+/* ============== BACKGROUND RELATED =========*/
+.background {
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  z-index: -1000;
+  background-image: linear-gradient(to bottom left, #fcfcfd 50%, #181a1b 50%);
+  opacity: 0;
+  transition: all 0.4s;
+}
+.background-visible .background {
+  opacity: 1;
+}
+.background-visible .blend-difference {
+  mix-blend-mode: difference;
+}
+
+.background-visible .home :is(i, p, h1, span) {
+  color: hsl(207, 4%, 95%);
+}
+
+.background-visible .home__title {
+  color: rgb(24, 26, 27) !important;
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -449,14 +474,48 @@ body.dark-theme {
   font-weight: var(--font-semi-bold);
 }
 
-.certificate__link, .qualification__name:visited{
+.certificate__link,
+.qualification__name:visited {
   color: var(--title-color);
   text-decoration: underline;
 }
 
 /*=============== SKILLS ===============*/
+
 .skills__container {
   row-gap: 3.5rem;
+}
+
+.skills__content {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.background-visible .skills__content::before {
+  box-shadow: 15px 9px 19px 1px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s;
+  content: "";
+  width: 100%;
+  height: 110%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fcfcfd;
+  border-radius: 7.75rem;
+  opacity: 0.7;
+  z-index: -100;
+}
+
+.background-visible:not(.dark-theme) .skills__content h3 {
+  color: rgb(24, 26, 27);
+}
+
+.background-visible.dark-theme .skills__content::before {
+  background-color: #181a1b;
+}
+
+.background-visible .skills__content:hover::before {
+  border-radius: 2rem;
 }
 
 .skills__title {
@@ -542,6 +601,10 @@ body.dark-theme {
   position: relative;
 }
 
+.background-visible .qualification {
+  mix-blend-mode: difference;
+}
+
 .qualification__container {
   row-gap: 3.5rem;
 }
@@ -571,7 +634,8 @@ body.dark-theme {
   margin-bottom: 1.25rem;
 }
 
-.qualification__name a, .qualification__name a:visited{
+.qualification__name a,
+.qualification__name a:visited {
   color: var(--title-color);
   text-decoration: underline;
 }
@@ -654,8 +718,8 @@ body.dark-theme {
   width: 80%;
 }
 
-
 .projects__content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;

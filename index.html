@@ -545,16 +545,17 @@
               </div>
             </div>
             <!-- Swiper arrows -->
-            <div class="swiper-button-next">
-              <i class="ri-arrow-drop-right-line"></i>
-            </div>
-            <div class="swiper-button-prev">
-              <i class="ri-arrow-drop-left-line"></i>
-            </div>
 
             <!-- Swiper pagination -->
             <div class="swiper-pagination"></div>
           </div>
+          <div
+            class="swiper__arrow ri-arrow-drop-right-line blend-difference"
+          ></div>
+
+          <div
+            class="swiper__arrow ri-arrow-drop-left-line blend-difference"
+          ></div>
         </div>
       </section>
 
@@ -628,6 +629,7 @@
                 <input
                   type="email"
                   name="user_email"
+                  pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
                   required
                   placeholder="Write your email"
                   class="contact__form-input"
@@ -647,9 +649,9 @@
               </div>
               <p class="result__message" id="result-message"></p>
 
-              <button type="submit" class="contact__button">
+              <div class="contact__button" id="submit">
                 Submit <i class="ri-arrow-right-up-line"></i>
-              </button>
+              </div>
             </form>
           </div>
         </div>

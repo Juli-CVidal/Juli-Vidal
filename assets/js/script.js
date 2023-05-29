@@ -29,16 +29,17 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 /*=============== SWIPER PROJECTS ===============*/
 let swiperProjects = new Swiper(".projects__container", {
   loop: true,
-  slidesPerView: "auto",
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".ri-arrow-drop-right-line",
+    prevEl: ".ri-arrow-drop-left-line",
   },
   pagination: {
     el: ".swiper-pagination",
   },
   mousewheel: true,
   keyboard: true,
+  slidesPerView: 1,
+
 });
 
 /*=============== EMAIL JS ===============*/
@@ -47,45 +48,83 @@ const contactForm = document.getElementById("contact-form"),
   contactEmail = document.getElementById("contact-email"),
   contactMessage = document.getElementById("contact-message"),
   resultMessage = document.getElementById("result-message");
+submitButton = document.getElementById("submit");
+
+const sendEmailMessage = () => {
+  const serviceID = "service_n5gksoj";
+  const templateID = "template_qaxoco5";
+  const formSelector = "#contact-form";
+  const userID = "XVXoSmc612W-44U7o";
+
+  return emailjs.sendForm(serviceID, templateID, formSelector, userID);
+};
+
+const displayErrorMessage = (
+  message = "Not all fields have been filled in"
+) => {
+  resultMessage.classList.remove("color-blue");
+  resultMessage.classList.add("color-red");
+  resultMessage.innerText = message;
+};
+
+const isValidEmail = (email) => {
+  return (
+    "" !== email &&
+    new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$").exec(email)
+  );
+};
+
+const areEmptyFields = (...values) => {
+  return values.some((value) => value === "");
+};
 
 const sendEmail = (event) => {
   event.preventDefault();
-  if (
-    [contactName.value, contactEmail.value, contactMessage.value].some(
-      (val) => val === ""
-    )
-  ) {
-  
-    resultMessage.classList.remove("color-blue");
-    resultMessage.classList.add("color-red");
-    resultMessage.innerText = "Not all fields have been filled in";
-  } else {
-    emailjs
-      .sendForm(
-        "service_n5gksoj",
-        "template_qaxoco5",
-        "#contact-form",
-        "XVXoSmc612W-44U7o"
-      )
-      .then(
-        () => {
-          resultMessage.classList.remove("color-red");
-          resultMessage.classList.add("color-blue");
-          resultMessage.innerText = "Message sent successfully!";
 
-          setTimeout(() => {
-            resultMessage.innerText = "";
-          }, 5000);
-        },
-        (error) => {
-          alert("Something has failed :c -> ", error);
-        }
-      );
+  const name = contactName.value;
+  const email = contactEmail.value;
+  const message = contactMessage.value;
 
-    contactForm.reset();
+  if (areEmptyFields(name, email, message)) {
+    displayErrorMessage("Please complete all the fields");
+    return;
   }
+
+  if (!isValidEmail(email)) {
+    displayErrorMessage(
+      "Please enter a valid email (example: name@domain.com)"
+    );
+    return;
+  }
+
+  sendEmailMessage()
+    .then(() => {
+      displaySuccessMessage();
+      resetForm();
+    })
+    .catch((error) => {
+      displayErrorMessage("Something has failed :c -> " + error);
+    });
 };
-contactForm.addEventListener("submit", sendEmail);
+
+const displaySuccessMessage = () => {
+  resultMessage.classList.remove("color-red");
+  resultMessage.classList.add("color-blue");
+  resultMessage.innerText = "Message sent successfully!";
+
+  setTimeout(() => {
+    resultMessage.innerText = "";
+  }, 5000);
+};
+
+const resetForm = () => {
+  contactForm.reset();
+};
+
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  sendEmail(event);
+});
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");
@@ -148,12 +187,11 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
-
 /* ======== BACKGROUND RELATED ======== */
 const flipButton = document.getElementById("flip-button");
 flipButton.addEventListener("click", () => {
   document.body.classList.toggle("background-visible");
-})
+});
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 const scrollHeader = () => {

@@ -803,7 +803,7 @@ body.background-visible {
   cursor: pointer;
   font-size: 4rem;
   color: #fcfcfd;
-  z-index: var(--z-fixed);
+  z-index: 10;
 }
 
 .ri-arrow-drop-left-line {

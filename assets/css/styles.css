@@ -269,9 +269,7 @@ body.background-visible {
 }
 
 /* Better readability for specified elements */
-.background-visible .skills__content::before,
-.background-visible .services__card::before,
-.background-visible .contact__content:nth-child(2)::before {
+.background-visible .background__before::before {
   box-shadow: 15px 9px 19px 1px rgba(0, 0, 0, 0.25);
   transition: all 0.4s;
   content: "";
@@ -286,7 +284,11 @@ body.background-visible {
   z-index: -100;
 }
 
-.background-visible.dark-theme .skills__content::before {
+.background-visible:not(.dark-theme) .background__before {
+  --title-color: #181a1b;
+}
+
+.background-visible.dark-theme .background__before::before {
   background-color: #181a1b;
 }
 
@@ -294,8 +296,11 @@ body.background-visible {
   border-radius: 2rem;
 }
 
-.dark-theme .services__card::before {
-  background-color: #181a1b;
+.background-visible .projects__content::before {
+  width: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3rem;
 }
 
 .background-visible .contact__content:nth-child(2)::before {
@@ -305,10 +310,6 @@ body.background-visible {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 4.75rem;
-}
-
-.background-visible.dark-theme .contact__content:nth-child(2)::before {
-  background-color: #181a1b;
 }
 
 /*=============== HEADER & NAV ===============*/
@@ -542,10 +543,6 @@ body.background-visible {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.background-visible:not(.dark-theme) .skills__content h3 {
-  color: #181a1b;
-}
-
 .skills__title {
   display: flex;
   justify-content: center;
@@ -717,11 +714,6 @@ body.background-visible {
   margin-bottom: 1.5rem;
 }
 
-.background-visible:not(.dark-theme)
-  :is(.services__title, .services__card :is(i, p)) {
-  color: #181a1b;
-}
-
 .services__border {
   width: 248px;
   height: 342px;
@@ -762,6 +754,12 @@ body.background-visible {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.background-visible .projects__container {
+  --title-color: #181a1b;
 }
 
 .projects__img {
@@ -838,11 +836,6 @@ body.background-visible {
   padding: 2rem;
 }
 
-.background-visible:not(.dark-theme)
-  .contact__content:nth-child(2)
-  :is(h3, i, label) {
-  color: #181a1b;
-}
 
 .contact__title {
   display: flex;

@@ -245,23 +245,25 @@ body.background-visible {
 }
 
 /* ============== BACKGROUND RELATED =========*/
-.background {
+.background,
+.background-inverted {
   min-width: 100vw;
   min-height: 100vh;
   position: fixed;
   z-index: -1000;
   background-image: linear-gradient(to bottom left, #fcfcfd 50%, #181a1b 50%);
   opacity: 0;
-  transition: all 1s ease-in-out;
+  transition: opacity 1s ease;
 }
 
-.background-visible .background {
+.background-inverted {
+  z-index: -999;
+  background-image: linear-gradient(to top right, #fcfcfd 50%, #181a1b 50%);
+}
+
+.background-visible:not(.dark-theme) .background,
+.background-visible.dark-theme .background-inverted {
   opacity: 1;
-}
-
-.dark-theme .background {
-  transform: rotateZ(180deg);
-  transition: all 1s ease-in-out;
 }
 
 .background-visible .blend-difference {
@@ -835,7 +837,6 @@ body.background-visible {
   position: relative;
   padding: 2rem;
 }
-
 
 .contact__title {
   display: flex;

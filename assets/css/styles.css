@@ -299,7 +299,7 @@ body.background-visible {
 }
 
 .background-visible .projects__content::before {
-  width: 50%;
+  width: 350px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 3rem;
@@ -628,10 +628,6 @@ body.background-visible {
   position: relative;
 }
 
-.background-visible .qualification {
-  mix-blend-mode: difference;
-}
-
 .qualification__container {
   row-gap: 3.5rem;
 }
@@ -757,11 +753,7 @@ body.background-visible {
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.background-visible .projects__container {
-  --title-color: #181a1b;
+  margin-bottom: 1.5rem;
 }
 
 .projects__img {
@@ -775,6 +767,7 @@ body.background-visible {
   color: var(--text-color-light);
 }
 .projects__title {
+  color: var(--title-color);
   font-size: var(--h2-font-size);
   margin-bottom: 1.25rem;
   margin: 0.5rem 0 1.25rem;
@@ -802,7 +795,7 @@ body.background-visible {
   position: absolute;
   cursor: pointer;
   font-size: 4rem;
-  color: #fcfcfd;
+  color: var(--title-color);
   z-index: 10;
 }
 

@@ -8,19 +8,24 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(207, 49%, 47%);
-  --title-color: hsl(207, 4%, 16%);
+  --white-mode-title-color: hsl(207, 4%, 16%);
+  --dark-mode-title-color: hsl(200, 6%, 10%);
+  --title-color: var(--white-mode-title-color);
   --text-color: hsl(207, 4%, 28%);
   --text-color-light: hsl(207, 4%, 56%);
-  --body-color: hsl(207, 4%, 99%);
-  --container-color: hsl(207, 4%, 95%);
+  --white-mode-body-color: hsl(207, 4%, 99%);
+  --dark-mode-body-color: hsl(207, 4%, 10%);
+  --body-color: var(--white-mode-body-color);
+
+  --white-mode-container-color: hsl(207, 4%, 95%);
+  --dark-mode-container-color: hsl(207, 4%, 12%);
+  --container-color: var(--white-mode-container-color);
 
   /* Change the first number */
   /* Blue: 207 - Purple: 250 - Pink: 356 - Teal: 174 */
-  --gradient-color: linear-gradient(
-    180deg,
-    hsla(207, 48%, 72%, 0),
-    hsla(207, 65%, 65%, 1)
-  );
+  --gradient-color: linear-gradient(180deg,
+      hsla(207, 48%, 72%, 0),
+      hsla(207, 65%, 65%, 1));
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -75,7 +80,8 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
-  transition: background 0.4s; /* for dark mode animation */
+  transition: background 0.4s;
+  /* for dark mode animation */
 }
 
 h1,
@@ -118,8 +124,8 @@ body.dark-theme,
 body.background-visible {
   --title-color: hsl(207, 4%, 95%);
   --text-color: hsl(207, 4%, 65%);
-  --body-color: hsl(207, 4%, 10%);
-  --container-color: hsl(207, 4%, 12%);
+  --body-color: var(--dark-mode-body-color);
+  --container-color: var(--dark-mode-container-color);
 }
 
 /*========== 
@@ -150,9 +156,11 @@ body.background-visible {
 .dark-theme::-webkit-scrollbar {
   background-color: rgb(37, 38, 40);
 }
+
 .dark-theme::-webkit-scrollbar-thumb {
   background-color: rgb(61, 63, 66);
 }
+
 .dark-theme::-webkit-scrollbar-thumb:hover {
   background-color: rgb(86, 88, 93);
 }
@@ -196,7 +204,8 @@ body.background-visible {
 }
 
 .main {
-  overflow: hidden; /* For animation */
+  overflow: hidden;
+  /* For animation */
 }
 
 /*=============== LOADER ===============*/
@@ -226,11 +235,13 @@ body.background-visible {
   font-size: 78px;
   opacity: 0.8;
 }
+
 .loader:before {
   content: "{";
   display: inline-block;
   animation: pulse 0.4s alternate infinite ease-in-out;
 }
+
 .loader:after {
   content: "}";
   display: inline-block;
@@ -251,14 +262,14 @@ body.background-visible {
   min-height: 100vh;
   position: fixed;
   z-index: -1000;
-  background-image: linear-gradient(to bottom left, #fcfcfd 50%, #181a1b 50%);
+  background-image: linear-gradient(to bottom left, #fcfcfd 50%, var(--dark-mode-title-color) 50%);
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 
 .background-inverted {
   z-index: -999;
-  background-image: linear-gradient(to top right, #fcfcfd 50%, #181a1b 50%);
+  background-image: linear-gradient(to top right, #fcfcfd 50%, var(--dark-mode-title-color) 50%);
 }
 
 .background-visible:not(.dark-theme) .background,
@@ -281,13 +292,22 @@ body.background-visible {
   top: 0;
   left: 0;
   background-color: #fcfcfd;
-  border-radius: 7.75rem;
-  opacity: 0.7;
+  border-radius: 3rem;
   z-index: -100;
 }
 
-.background-visible:not(.dark-theme) .background__before {
-  --title-color: #181a1b;
+.background-visible:not(.dark-theme) .background__before,
+.background-visible:not(.dark-theme) .nav,
+.background-visible.dark-theme .scrollup {
+  --title-color: var(--dark-mode-title-color);
+}
+
+.background-visible:not(.dark-theme) :is(.nav, .nav__menu) {
+  background-color: var(--white-mode-container-color);
+}
+
+.background-visible.dark-theme .scrollup {
+  background-color: var(--white-mode-container-color);
 }
 
 .background-visible.dark-theme .background__before::before {
@@ -413,7 +433,6 @@ body.background-visible {
 /*=============== HOME ===============*/
 .home__container {
   row-gap: 4rem;
-  padding-top: 2rem;
 }
 
 .home__data {
@@ -428,6 +447,7 @@ body.background-visible {
   margin-bottom: 0.5rem;
   transition: color 0.8s;
 }
+
 .dark-theme .home__title {
   color: #fcfcfd;
 }
@@ -508,19 +528,16 @@ body.background-visible {
 
 .home__info-title {
   font-family: var(--body-font);
-  font-size: var(--smaller-font-size);
+  font-size: var(--medium-font-size);
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
 .home__info-description,
-.home__info-number {
+.home__info-number,
+.certificate__link {
   font-family: var(--title-font);
   color: var(--title-color);
-}
-
-.home__info-description {
-  padding-right: 4rem;
 }
 
 .home__info-number {
@@ -534,6 +551,9 @@ body.background-visible {
   text-decoration: underline;
 }
 
+.certificate__link {
+  font-size: var(--h3-font-size);
+}
 /*=============== SKILLS ===============*/
 
 .skills__container {
@@ -552,7 +572,6 @@ body.background-visible {
   column-gap: 0.5rem;
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
-  margin-bottom: 2.5rem;
 }
 
 .skills__title i {
@@ -579,10 +598,9 @@ body.background-visible {
 .skills__blob {
   width: 80px;
   height: 100px;
-  background-color: var(--container-color);
+  /* background-color: var(--container-color); */
   border-radius: 3rem;
   place-items: center;
-  margin-bottom: 1rem;
   transition: background 0.4s;
 }
 
@@ -609,15 +627,19 @@ body.background-visible {
   0% {
     transform: translate(0);
   }
+
   20% {
     transform: translateY(-6px);
   }
+
   40% {
     transform: translate(0);
   }
+
   60% {
     transform: translateY(-3px);
   }
+
   80% {
     transform: translate(0);
   }
@@ -682,6 +704,7 @@ body.background-visible {
   transform: rotate(15deg);
   opacity: 0.1;
 }
+
 /*=============== SERVICES ===============*/
 .services__container {
   row-gap: 2.5rem;
@@ -696,6 +719,10 @@ body.background-visible {
   padding: 3.5rem 1rem;
   border-radius: 7.25rem;
   transition: background 0.4s;
+}
+
+.background-visible .services__card.background__before::before {
+  border-radius: 7.75rem;
 }
 
 .services__card i {
@@ -733,6 +760,7 @@ body.background-visible {
 .services__card:hover .services__border {
   opacity: 1;
 }
+
 /*=============== PROJECTS ===============*/
 
 .projects .section__border {
@@ -766,6 +794,7 @@ body.background-visible {
   font-size: var(--small-font-size);
   color: var(--text-color-light);
 }
+
 .projects__title {
   color: var(--title-color);
   font-size: var(--h2-font-size);
@@ -812,10 +841,12 @@ body.background-visible {
 .projects__container .swiper-pagination-bullets {
   bottom: 0;
 }
+
 .projects__container .swiper-pagination-bullet {
   background-color: var(--text-color-light);
   opacity: initial;
 }
+
 .projects__container .swiper-pagination-bullet-active {
   background-color: var(--title-color);
 }
@@ -893,6 +924,7 @@ body.background-visible {
   position: relative;
   row-gap: 1.5rem;
 }
+
 .contact__form-div {
   position: relative;
   height: 4rem;
@@ -917,15 +949,19 @@ body.background-visible {
 
 .contact__form-tag {
   position: absolute;
-  top: -0.95rem;
+  top: -0.65rem;
   left: 2.15rem;
+  padding-inline: 0.25rem;
+  background-color: var(--body-color);
   z-index: 10;
-  /* background-color: var(--body-color); */
   color: var(--title-color);
   font-size: 1rem;
   font-weight: var(--font-medium);
-  /* padding: 0.35rem; */
   transition: background 0.4s;
+}
+
+.background-visible:not(.dark-theme) .contact__form-tag {
+  --body-color: var(--white-mode-body-color)
 }
 
 .contact__form-area {
@@ -1023,6 +1059,7 @@ body.background-visible {
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);
 }
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: 0.6rem;
@@ -1034,6 +1071,7 @@ body.background-visible {
   background-color: rgb(162, 166, 169);
   border-radius: 0.5rem;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(136, 141, 145);
 }
@@ -1090,6 +1128,7 @@ body.background-visible {
 
 /* For medium devices */
 @media screen and(min-width: 576px) {
+
   .nav,
   .nav__menu {
     width: 380px;
@@ -1111,6 +1150,7 @@ body.background-visible {
   .projects__container .swiper-button-prev {
     left: 1rem;
   }
+
   .projects__container .swiper-button-next {
     right: 1rem;
   }
@@ -1123,16 +1163,20 @@ body.background-visible {
 
   .home__data {
     order: 2;
+    align-self: center;
+  }
+
+  
+  .home__info {
+    margin-top: 10rem;
+    margin-left: 5rem;
   }
 
   .home__info:nth-child(3) {
     order: 3;
     text-align: right;
     margin-right: 5rem;
-  }
-  .home__info {
-    margin-top: 10rem;
-    margin-left: 5rem;
+    margin-left: 0;
   }
 
   .home__info-description {
@@ -1154,6 +1198,7 @@ body.background-visible {
   .skills__container {
     justify-content: center;
   }
+
   .qualification__container {
     justify-content: center;
     column-gap: 10rem;
@@ -1169,6 +1214,18 @@ body.background-visible {
   }
 }
 
+@media screen and (max-width: 766px) {
+  .home__info:nth-child(2) div:nth-child(2n),
+  .qualification__content:nth-child(1) .qualification__info>div:nth-child(2n) {
+    text-align: end;
+  }
+
+  .home__info:nth-child(3) div:nth-child(2n+1),
+  .qualification__content:nth-child(2) .qualification__info>div:nth-child(2n+1) {
+    text-align: end;
+  }
+}
+
 /* For large devices */
 @media screen and (min-width: 1023px) {
   .header {
@@ -1176,10 +1233,14 @@ body.background-visible {
     bottom: initial;
     background-color: var(--body-color);
     transition: 0.4s;
+    box-shadow: 0px 3px 10px 4px rgba(0,0,0,0.25);
+  }
+
+  .background-visible:not(.dark-theme) .header {
+    background-color: var(--white-mode-container-color);
   }
 
   .nav {
-    width: initial;
     height: calc(var(--header-height) + 1.5rem);
     box-shadow: none;
     border-radius: 0;
@@ -1239,15 +1300,6 @@ body.background-visible {
   .show-scroll {
     bottom: 5rem;
   }
-
-  /* Change Background header */
-  .bg-header {
-    box-shadow: 0 4px 20px rgba(68, 91, 111, 0.1);
-  }
-
-  .dark-theme .bg-header {
-    box-shadow: 0 4px 20px rgba(16, 21, 25, 0.6);
-  }
 }
 
 @media screen and(min-width: 1048px) {
@@ -1290,6 +1342,7 @@ body.background-visible {
     left: -4rem;
     top: 10rem;
   }
+
   .home__shape-circle {
     width: 250px;
     bottom: -1rem;

@@ -193,15 +193,6 @@ flipButton.addEventListener("click", () => {
   document.body.classList.toggle("background-visible");
 });
 
-/*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () => {
-  const header = document.getElementById("header");
-  this.scrollY >= 50
-    ? header.classList.add("bg-header")
-    : header.classList.remove("bg-header");
-};
-window.addEventListener("scroll", scrollHeader);
-
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
@@ -211,7 +202,7 @@ const sr = ScrollReveal({
   reset: false,
 });
 
-sr.reveal(".home__data, .projects__container, .footer__container");
+sr.reveal(".home__title, .home__data, .projects__container, .footer__container");
 sr.reveal(".home__info div", { delay: 600, origin: "bottom", interval: 100 });
 sr.reveal(".skills__content:nth-child(1), .contact__content:nth-child(1)", {
   origin: "left",
@@ -230,3 +221,16 @@ window.addEventListener("load", () => {
     setTimeout(() => (preloader.style.display = "none"), 1);
   }, 500);
 });
+
+/*=============== INTERCALATION ===============*/
+const shouldIntercalate = window.matchMedia('(max-width: 767px)').matches;
+const homeInfoElements = document.querySelectorAll('.home__info:nth-child(2) div:nth-child(2n)');
+const qualificationContentElements = document.querySelectorAll('.qualification__content:nth-child(1) .qualification__info > div:nth-child(2n)');
+
+const updateTextAlign = () => {
+  [...homeInfoElements, ...qualificationContentElements].forEach(element => {
+    element.style.textAlign = shouldIntercalate ? 'end' : "";
+  });
+}
+
+window.addEventListener('resize', updateTextAlign);
